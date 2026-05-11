@@ -19,7 +19,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"codigo\": \"P02\",\n    \"nombre\": \"rt\",\n    \"precio\": 2500\n}"
+          "raw": "{\n    \"codigo\": \"P03\",\n    \"nombre\": \"raton\",\n    \"precio\": 2500,\n    \"stock\":20\n}"
         },
         "url": {
           "raw": "http://localhost:8080/productos",
@@ -60,7 +60,7 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:8080/productos/P01",
+          "raw": "http://localhost:8080/productos/P02",
           "protocol": "http",
           "host": [
             "localhost"
@@ -68,7 +68,7 @@
           "port": "8080",
           "path": [
             "productos",
-            "P01"
+            "P02"
           ]
         }
       },
@@ -86,7 +86,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n    \"codigo\": \"P01\",\n    \"nombre\": \"Laptop Gamer\",\n    \"precio\": 3200\n}"
+          "raw": "{\n    \"codigo\": \"P03\",\n    \"nombre\": \"Laptop Gamer\",\n    \"precio\": 3200,\n    \"stock\": 41\n}"
         },
         "url": {
           "raw": "http://localhost:8080/productos/P01",
@@ -109,7 +109,7 @@
         "method": "DELETE",
         "header": [],
         "url": {
-          "raw": "http://localhost:8080/productos/P01",
+          "raw": "http://localhost:8080/productos/P02",
           "protocol": "http",
           "host": [
             "localhost"
@@ -117,7 +117,7 @@
           "port": "8080",
           "path": [
             "productos",
-            "P01"
+            "P02"
           ]
         }
       },
