@@ -26,7 +26,7 @@ public class ProductoServicioTest {
 		ProductoServicio servicio = new ProductoServicio();
 
 		// Crea producto
-		Producto producto = new Producto("001", "Laptop", 2500);
+		Producto producto = new Producto("001", "Laptop", 2500,10);
 
 		// Guarda producto
 		Producto resultado = servicio.guardar(producto);
@@ -47,7 +47,7 @@ public class ProductoServicioTest {
 
 		ProductoServicio servicio = new ProductoServicio();
 
-		Producto producto = new Producto("002", "Mouse", 50);
+		Producto producto = new Producto("002", "Mouse", 50,10);
 
 		servicio.guardar(producto);
 
@@ -69,12 +69,12 @@ public class ProductoServicioTest {
 
 		ProductoServicio servicio = new ProductoServicio();
 
-		Producto producto = new Producto("003", "Teclado", 100);
+		Producto producto = new Producto("003", "Teclado", 100,10);
 
 		servicio.guardar(producto);
 
 		// Datos actualizados
-		Producto nuevo = new Producto("003", "Teclado Gamer", 150);
+		Producto nuevo = new Producto("003", "Teclado Gamer", 150,10);
 
 		// Actualiza producto
 		Producto actualizado = servicio.actualizar("003", nuevo);
@@ -93,7 +93,7 @@ public class ProductoServicioTest {
 
 		ProductoServicio servicio = new ProductoServicio();
 
-		Producto producto = new Producto("004", "Monitor", 800);
+		Producto producto = new Producto("004", "Monitor", 800,10);
 
 		servicio.guardar(producto);
 

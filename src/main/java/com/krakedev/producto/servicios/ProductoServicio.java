@@ -20,21 +20,18 @@ public class ProductoServicio {
 	private List<Producto> productos = new ArrayList<>();
 
 	/*
-	 * Método para guardar un producto.
-	 * Valida que no exista un código repetido.
-	 * Si existe retorna null.
+	 * Método para guardar un producto. Valida que no exista un código repetido. Si
+	 * existe retorna null.
 	 */
 	public Producto guardar(Producto producto) {
 
 		/*
-		 * Busca si ya existe un producto
-		 * con el mismo código.
+		 * Busca si ya existe un producto con el mismo código.
 		 */
 		Producto encontrado = buscarPorCodigo(producto.getCodigo());
 
 		/*
-		 * Si el producto existe
-		 * no realiza el registro.
+		 * Si el producto existe no realiza el registro.
 		 */
 		if (encontrado != null) {
 
@@ -42,8 +39,7 @@ public class ProductoServicio {
 		}
 
 		/*
-		 * Si no existe,
-		 * guarda el producto.
+		 * Si no existe, guarda el producto.
 		 */
 		productos.add(producto);
 
@@ -88,8 +84,7 @@ public class ProductoServicio {
 		Producto encontrado = buscarPorCodigo(codigo);
 
 		/*
-		 * Si el producto no existe
-		 * retorna null.
+		 * Si el producto no existe retorna null.
 		 */
 		if (encontrado == null) {
 
@@ -101,6 +96,9 @@ public class ProductoServicio {
 
 		// Actualiza precio
 		encontrado.setPrecio(productoActualizado.getPrecio());
+		
+		// Actualiza stock---------------------------------------
+		encontrado.setStock(productoActualizado.getStock());
 
 		// Retorna producto actualizado
 		return encontrado;
@@ -115,8 +113,7 @@ public class ProductoServicio {
 		Producto encontrado = buscarPorCodigo(codigo);
 
 		/*
-		 * Si no existe
-		 * retorna false.
+		 * Si no existe retorna false.
 		 */
 		if (encontrado == null) {
 
