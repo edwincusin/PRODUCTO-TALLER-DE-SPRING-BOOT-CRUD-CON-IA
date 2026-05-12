@@ -27,23 +27,20 @@ public class ProductoController {
 	private ProductoServicio servicio;
 
 	/*
-	 * Endpoint para crear productos.
-	 * Método HTTP: POST
+	 * Endpoint para crear productos. Método HTTP: POST
 	 */
 	@PostMapping
 	public Producto crear(@RequestBody Producto producto) {
 
 		/*
-		 * @RequestBody convierte el JSON
-		 * en un objeto Producto.
+		 * @RequestBody convierte el JSON en un objeto Producto.
 		 */
 
 		return servicio.guardar(producto);
 	}
 
 	/*
-	 * Endpoint para listar productos.
-	 * Método HTTP: GET
+	 * Endpoint para listar productos. Método HTTP: GET
 	 */
 	@GetMapping
 	public List<Producto> listar() {
@@ -52,35 +49,29 @@ public class ProductoController {
 	}
 
 	/*
-	 * Endpoint para buscar producto por código.
-	 * Método HTTP: GET
+	 * Endpoint para buscar producto por código. Método HTTP: GET
 	 */
 	@GetMapping("/{codigo}")
 	public Producto buscar(@PathVariable String codigo) {
 
 		/*
-		 * @PathVariable obtiene el valor
-		 * enviado en la URL.
+		 * @PathVariable obtiene el valor enviado en la URL.
 		 */
 
 		return servicio.buscarPorCodigo(codigo);
 	}
 
 	/*
-	 * Endpoint para actualizar un producto.
-	 * Método HTTP: PUT
+	 * Endpoint para actualizar un producto. Método HTTP: PUT
 	 */
 	@PutMapping("/{codigo}")
-	public Producto actualizar(
-			@PathVariable String codigo,
-			@RequestBody Producto producto) {
+	public Producto actualizar(@PathVariable String codigo, @RequestBody Producto producto) {
 
 		return servicio.actualizar(codigo, producto);
 	}
 
 	/*
-	 * Endpoint para eliminar un producto.
-	 * Método HTTP: DELETE
+	 * Endpoint para eliminar un producto. Método HTTP: DELETE
 	 */
 	@DeleteMapping("/{codigo}")
 	public String eliminar(@PathVariable String codigo) {
