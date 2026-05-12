@@ -1,44 +1,38 @@
-name: Java CI with Codecov
+name: Tests
 
 on:
   push:
-    branches: [ "master" ]
+    branches:
+      - master
+
   pull_request:
-    branches: [ "master" ]
+    branches:
+      - master
 
 jobs:
-  build:
+  test:
+
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout del código
-      uses: actions/checkout@v4
 
-    - name: Configurar JDK 21
-      uses: actions/setup-java@v4
-      with:
-        java-version: '25'
-        distribution: 'temurin'
-        cache: 'maven'
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
 
-    - name: Compilar y Ejecutar Pruebas con Maven
-      # Genera el archivo target/site/jacoco/jacoco.xml
-      run: mvn clean test
+      - name: Configurar Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '25'
 
-    - name: Subir reporte a Codecov
-      uses: codecov/codecov-action@v4
-      with:
-        # Aquí usamos el secreto que configuraste en GitHub
-        token: ${{ secrets.CODECOV_TOKEN }}
-        # Ruta al archivo XML generado por JaCoCo
-        files: ./target/site/jacoco/jacoco.xml
-        # Indica que es un proyecto Java
-        flags: unittests
-        name: codecov-umbrella
-        fail_ci_if_error: true
+      - name: Dar permisos a Maven Wrapper
+        run: chmod +x mvnw
 
-    - name: Guardar Reporte como Artefacto (Opcional)
-      uses: actions/upload-artifact@v4
-      with:
-        name: reporte-cobertura
-        path: target/site/jacoco/
+      - name: Ejecutar pruebas
+        run: ./mvnw test
+
+      - name: Subir cobertura a Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: target/site/jacoco/jacoco.xml
